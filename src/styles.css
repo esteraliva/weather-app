@@ -32,6 +32,12 @@ hr {
   margin: 5px 0;
 }
 
+footer {
+  font-size: 13px;
+  text-align: center;
+  padding-top: 10px;
+}
+
 .container {
   background-color: #fff;
   border: 1px solid #e7eaf6;
