@@ -29,104 +29,108 @@
   </head>
   <body>
     <div class="container">
-      <form id="search-form">
-        <div class="row search-bar">
-          <div class="col-7">
-            <input
-              type="search"
-              id="change-city"
-              class="form-control shadow-sm"
-              placeholder="Change city to..."
-            />
+      <div class="weather-app">
+        <form id="search-form">
+          <div class="row search-bar">
+            <div class="col-7">
+              <input
+                type="search"
+                id="change-city"
+                class="form-control shadow-sm"
+                placeholder="Change city to..."
+              />
+            </div>
+            <div class="col-1">
+              <input
+                type="submit"
+                value="🔍 "
+                class="form-control search-button shadow-sm"
+              />
+            </div>
+            <div class="col-2">
+              <button class="current-button">Current</button>
+            </div>
+            <div class="col-2 degree-unit">
+              <p>
+                <a href="#" class="celsius-degree-link"><strong>ºC</strong></a>
+                |
+                <a href="#" class="fahrenheit-degree-link">ºF</a>
+              </p>
+            </div>
           </div>
-          <div class="col-1">
-            <input
-              type="submit"
-              value="🔍 "
-              class="form-control search-button shadow-sm"
-            />
-          </div>
-          <div class="col-2">
-            <button class="current-button">Current</button>
-          </div>
-          <div class="col-2 degree-unit">
-            <p>
-              <a href="#" class="celsius-degree-link"><strong>ºC</strong></a> |
-              <a href="#" class="fahrenheit-degree-link">ºF</a>
+        </form>
+
+        <div class="row">
+          <div class="col-6">
+            <h1 class="city">Barcelona</h1>
+            <p class="weather-details">
+              TODAY | Monday May 2<br />
+              21º | 14º
+            </p>
+            <h2 class="degrees-today">
+              <span id="degrees-today">19</span><small>º</small>
+            </h2>
+            <i class="fa-solid fa-cloud cloud"></i>
+            <p class="weather-details">
+              <span id="weather-description"></span><br />
+              Wind: <span id="wind"></span>km/h<br />
+              Humidity: <span id="humidity"></span>%
             </p>
           </div>
-        </div>
-      </form>
 
-      <div class="row">
-        <div class="col-6">
-          <h1 class="city">Barcelona</h1>
-          <p class="weather-details">
-            TODAY | Monday May 2<br />
-            21º | 14º
-          </p>
-          <h2 class="degrees-today">
-            <span id="degrees-today">19</span><small>º</small>
-          </h2>
-          <i class="fa-solid fa-cloud cloud"></i>
-          <p class="weather-details">
-            <span id="weather-description"></span><br />
-            Wind: <span id="wind"></span>km/h<br />
-            Humidity: <span id="humidity"></span>%
-          </p>
-        </div>
-
-        <div class="col-6 prediction">
-          <div class="row days day-1">
-            <div class="col-4">Tuesday</div>
-            <div class="col-4">
-              <i class="fa-solid fa-cloud-rain cloud-rain"></i>
+          <div class="col-6 prediction">
+            <div class="row days day-1">
+              <div class="col-4">Tuesday</div>
+              <div class="col-4">
+                <i class="fa-solid fa-cloud-rain cloud-rain"></i>
+              </div>
+              <div class="col-4">18º | 13º</div>
             </div>
-            <div class="col-4">18º | 13º</div>
-          </div>
-          <hr />
+            <hr />
 
-          <div class="row days day-2">
-            <div class="col-4">Wednesday</div>
-            <div class="col-4">
-              <i class="fa-solid fa-cloud-sun cloud-sun"></i>
+            <div class="row days day-2">
+              <div class="col-4">Wednesday</div>
+              <div class="col-4">
+                <i class="fa-solid fa-cloud-sun cloud-sun"></i>
+              </div>
+              <div class="col-4">19º | 11º</div>
             </div>
-            <div class="col-4">19º | 11º</div>
-          </div>
-          <hr />
+            <hr />
 
-          <div class="row days day-3">
-            <div class="col-4">Thursday</div>
-            <div class="col-4">
-              <i class="fa-solid fa-cloud-sun cloud-sun"></i>
+            <div class="row days day-3">
+              <div class="col-4">Thursday</div>
+              <div class="col-4">
+                <i class="fa-solid fa-cloud-sun cloud-sun"></i>
+              </div>
+              <div class="col-4">22º | 13º</div>
             </div>
-            <div class="col-4">22º | 13º</div>
-          </div>
-          <hr />
+            <hr />
 
-          <div class="row days day-4">
-            <div class="col-4">Friday</div>
-            <div class="col-4"><i class="fa-solid fa-sun sun"></i></div>
-            <div class="col-4">22º | 13º</div>
-          </div>
-          <hr />
-
-          <div class="row days day-5">
-            <div class="col-4">Saturday</div>
-            <div class="col-4">
-              <i class="fa-solid fa-cloud-sun cloud-sun"></i>
+            <div class="row days day-4">
+              <div class="col-4">Friday</div>
+              <div class="col-4"><i class="fa-solid fa-sun sun"></i></div>
+              <div class="col-4">22º | 13º</div>
             </div>
-            <div class="col-4">22º | 14º</div>
+            <hr />
+
+            <div class="row days day-5">
+              <div class="col-4">Saturday</div>
+              <div class="col-4">
+                <i class="fa-solid fa-cloud-sun cloud-sun"></i>
+              </div>
+              <div class="col-4">22º | 14º</div>
+            </div>
           </div>
         </div>
       </div>
+      <footer>
+        <a href="https://github.com/esteraliva/weather-app.git" target="_blank"
+          >Open-source code</a
+        >
+        by Ester Aliva
+      </footer>
     </div>
-    <footer>
-      <a href="https://github.com/esteraliva/weather-app.git" target="_blank"
-        >Open-source code</a
-      >
-      by Ester Aliva
-    </footer>
+
     <script src="src/index.js"></script>
   </body>
 </html>

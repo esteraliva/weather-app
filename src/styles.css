@@ -38,12 +38,13 @@ footer {
   padding-top: 10px;
 }
 
-.container {
+.weather-app {
   background-color: #fff;
   border: 1px solid #e7eaf6;
   border-radius: 10px;
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
   max-width: 800px;
+  margin: auto;
   padding: 10px 40px 0;
 }
 
