@@ -93,8 +93,14 @@ footer {
   top: 9px;
 }
 
-.celsius-degree-link,
-.fahrenheit-degree-link {
+.degree-unit .active {
+  color: #113f67;
+  cursor: default;
+  font-weight: bold;
+}
+
+#celsius-link,
+#fahrenheit-link {
   color: #38598b;
   text-decoration: none;
 }
