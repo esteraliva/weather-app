@@ -19,11 +19,6 @@ h2 {
   text-align: center;
 }
 
-small {
-  position: relative;
-  top: -12px;
-}
-
 p {
   font-size: 15px;
 }
@@ -107,6 +102,12 @@ footer {
 .city,
 .degrees-today {
   color: #113f67;
+}
+
+.degrees-today small {
+  position: relative;
+  top: -21px;
+  font-size: 0.6875em;
 }
 
 #weather-icon {
