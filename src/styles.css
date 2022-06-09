@@ -114,6 +114,10 @@ footer {
   margin: auto;
 }
 
+#weather-description {
+  text-transform: capitalize;
+}
+
 .weather-details {
   color: #38598b;
   opacity: 0.7;

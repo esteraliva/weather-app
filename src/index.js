@@ -64,25 +64,23 @@ function handleSubmit(event) {
 }
 
 function displayWeather(response) {
-  document.querySelector(".city").innerHTML = response.data.name;
-  document.querySelector("#degrees-today").innerHTML = Math.round(
-    response.data.main.temp
+  let cityElement = document.querySelector(".city");
+  let temperatureElement = document.querySelector("#degrees-today");
+  let iconElement = document.querySelector("#weather-icon");
+  let descriptionElement = document.querySelector("#weather-description");
+  let windElement = document.querySelector("#wind");
+  let humidityElement = document.querySelector("#humidity");
+
+  cityElement.innerHTML = response.data.name;
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
-  document
-    .querySelector("#weather-icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#weather-icon")
-    .setAttribute("alt", response.data.weather[0].description);
-
-  document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].main;
-  document.querySelector("#wind").innerHTML = response.data.wind.speed;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  windElement.innerHTML = response.data.wind.speed;
+  humidityElement.innerHTML = response.data.main.humidity;
 }
 
 let searchForm = document.querySelector("#search-form");
