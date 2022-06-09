@@ -1,6 +1,5 @@
 //Set current date & time
 let now = new Date();
-console.log(now);
 
 let days = [
   "Sunday",
@@ -12,7 +11,6 @@ let days = [
   "Saturday",
 ];
 let day = days[now.getDay()];
-console.log(day);
 
 let months = [
   "January",
@@ -28,22 +26,18 @@ let months = [
   "December",
 ];
 let month = months[now.getMonth()];
-console.log(month);
 
 let date = now.getDate();
-console.log(date);
 
 let hour = now.getHours();
 if (hour < 10) {
   hour = "0" + hour;
 }
-console.log(hour);
 
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = "0" + minutes;
 }
-console.log(minutes);
 
 let currentDate = document.querySelector(".weather-details");
 currentDate.innerHTML = `TODAY | ${day} ${month} ${date} (${hour}:${minutes}h)<br /> 21º | 14º`;
