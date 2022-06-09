@@ -109,6 +109,11 @@ footer {
   color: #113f67;
 }
 
+#weather-icon {
+  display: block;
+  margin: auto;
+}
+
 .weather-details {
   color: #38598b;
   opacity: 0.7;
