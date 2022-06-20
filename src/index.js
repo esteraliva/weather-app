@@ -57,6 +57,29 @@ function handleSubmit(event) {
   search(city);
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = "";
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="row forecast">
+              <div class="col-4">${day}</div>
+              <div class="col-4">
+                <i class="fa-solid fa-cloud-rain"></i>
+              </div>
+              <div class="col-4">
+                <span class="forecast-max-temperature">18º</span> | 
+                <span class="forecast-min-temperature">13º</span>
+              </div>
+            </div>
+            <hr />`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   let cityElement = document.querySelector(".city");
   let temperatureElement = document.querySelector("#degrees-today");
@@ -82,6 +105,7 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 search("Barcelona");
+displayForecast();
 
 //Current button
 function getCurrentPosition(event) {
