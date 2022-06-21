@@ -40,7 +40,7 @@ if (minutes < 10) {
 }
 
 let currentDate = document.querySelector(".weather-details");
-currentDate.innerHTML = `TODAY | ${day} ${month} ${date} (${hour}:${minutes}h)<br /> 21º | 14º`;
+currentDate.innerHTML = `TODAY | ${day} ${month} ${date} (${hour}:${minutes}h)<br /><br />`;
 
 //Search city & get temperature
 function search(city) {
@@ -57,27 +57,62 @@ function handleSubmit(event) {
   search(city);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = "";
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="row forecast">
-              <div class="col-4">${day}</div>
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="row forecast">
+              <div class="col-4">${formatDay(forecastDay.dt)}</div>
               <div class="col-4">
-                <i class="fa-solid fa-cloud-rain"></i>
+                <img class="forecast-icons" src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png" alt=${
+          forecastDay.weather[0].description
+        } width="42" />
               </div>
               <div class="col-4">
-                <span class="forecast-max-temperature">18º</span> | 
-                <span class="forecast-min-temperature">13º</span>
+                <span class="forecast-max-temperature">${Math.round(
+                  forecastDay.temp.max
+                )}º</span> | 
+                <span class="forecast-min-temperature">${Math.round(
+                  forecastDay.temp.min
+                )}º</span>
               </div>
-            </div>
-            <hr />`;
+            </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "a5efa7105dd4830f86cf23199c044731";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -99,13 +134,14 @@ function displayWeather(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   windElement.innerHTML = response.data.wind.speed;
   humidityElement.innerHTML = response.data.main.humidity;
+
+  getForecast(response.data.coord);
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 search("Barcelona");
-displayForecast();
 
 //Current button
 function getCurrentPosition(event) {
